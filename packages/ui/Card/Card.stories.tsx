@@ -1,29 +1,13 @@
-import type {
-  Meta,
-  StoryObj
-} from "@storybook/react";
+import { Card } from "./";
 
-import { Button } from "./";
-
-const meta: Meta<typeof Button> = {
-  title: "Design System/Button",
-  component: Button
+export default {
+  title: "Design System/Card",
+  component: Card
 };
 
-export default meta;
-
-type Story =
-  StoryObj<typeof Button>;
-
-export const Active: Story = {
+export const Default = {
   args: {
-    title: "Button"
-  }
-};
-
-export const Disabled: Story = {
-  args: {
-    title: "Button",
-    disabled: true
+    title: "Card title",
+    children: "Card content"
   }
 };
