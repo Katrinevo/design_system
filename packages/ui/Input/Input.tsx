@@ -1,30 +1,37 @@
 import React from "react";
 import {
- Wrapper,
- Label,
- StyledInput,
- Error
+  Wrapper,
+  Label,
+  StyledInput,
+  Error
 } from "./Input.styles";
 
 import {
- InputProps
+  InputProps
 } from "./Input.types";
 
 export const Input:
 React.FC<InputProps> = ({
- label,
- placeholder,
- error
-}) => (
- <Wrapper>
-   <Label>{label}</Label>
+  label,
+  placeholder,
+  error,
+  mask
+}) => {
+  return (
+    <Wrapper>
+      {label && (
+        <Label>{label}</Label>
+      )}
 
-   <StyledInput
-    placeholder={placeholder}
-   />
+      <StyledInput
+        placeholder={
+          mask || placeholder
+        }
+      />
 
-   {error && (
-    <Error>{error}</Error>
-   )}
- </Wrapper>
-);
+      {error && (
+        <Error>{error}</Error>
+      )}
+    </Wrapper>
+  );
+};

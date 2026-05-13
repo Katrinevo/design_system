@@ -1,5 +1,6 @@
 export interface InputProps {
-  label: string;
+  label?: string;
   placeholder?: string;
   error?: string;
+  mask?: string;
 }
