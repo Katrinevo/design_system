@@ -1,6 +1,9 @@
-export interface CheckboxProps {
+export interface CheckboxOption {
+  id: number;
   label: string;
   checked: boolean;
-  onChange: () => void;
-  multiple?: boolean;
+}
+
+export interface CheckboxGroupProps {
+  options: CheckboxOption[];
 }

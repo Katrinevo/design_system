@@ -1,34 +1,54 @@
-import type {
-  Meta,
-  StoryObj
-} from "@storybook/react";
+import {
+ CheckboxGroup
+} from "./";
 
-import { Checkbox }
-from "./";
-
-const meta: Meta<typeof Checkbox> = {
-  title: "Design System/Checkbox",
-  component: Checkbox
+export default {
+ title:
+  "Design System/Checkbox",
+ component:
+  CheckboxGroup
 };
 
-export default meta;
-
-type Story =
-  StoryObj<typeof Checkbox>;
-
-export const SingleSelected:
-Story = {
-  args: {
+export const SingleChoice = {
+ args: {
+  options: [
+   {
+    id: 1,
+    label: "option 1",
+    checked: false
+   },
+   {
+    id: 2,
     label: "option 2",
     checked: true
-  }
+   },
+   {
+    id: 3,
+    label: "option 3",
+    checked: false
+   }
+  ]
+ }
 };
 
-export const MultiSelected:
-Story = {
-  args: {
+export const MultiChoice = {
+ args: {
+  options: [
+   {
+    id: 1,
+    label: "sub-option 1",
+    checked: false
+   },
+   {
+    id: 2,
     label: "sub-option 2",
-    checked: true,
-    multiple: true
-  }
+    checked: true
+   },
+   {
+    id: 3,
+    label: "sub-option 3",
+    checked: true
+   }
+  ]
+ }
 };

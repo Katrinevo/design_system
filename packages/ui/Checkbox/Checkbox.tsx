@@ -3,22 +3,21 @@ import {
   Wrapper,
   Box
 } from "./Checkbox.styles";
-import { CheckboxProps }
-from "./Checkbox.types";
+
+interface Props {
+  label: string;
+  checked: boolean;
+}
 
 export const Checkbox:
-React.FC<CheckboxProps> = ({
+React.FC<Props> = ({
   label,
-  checked,
-  onChange,
-  multiple = false
-}) => {
-  return (
-    <Wrapper onClick={onChange}>
-      <Box checked={checked}>
-        {checked ? "✓" : ""}
-      </Box>
-      {label}
-    </Wrapper>
-  );
-};
+  checked
+}) => (
+  <Wrapper>
+    <Box checked={checked}>
+      {checked ? "✓" : ""}
+    </Box>
+    {label}
+  </Wrapper>
+);
