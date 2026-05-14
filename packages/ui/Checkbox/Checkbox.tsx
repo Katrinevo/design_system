@@ -7,17 +7,23 @@ import {
 interface Props {
   label: string;
   checked: boolean;
+  multiple?: boolean;
 }
 
 export const Checkbox:
 React.FC<Props> = ({
   label,
-  checked
+  checked,
+  multiple = false
 }) => (
   <Wrapper>
-    <Box checked={checked}>
+    <Box
+      checked={checked}
+      multiple={multiple}
+    >
       {checked ? "✓" : ""}
     </Box>
+
     {label}
   </Wrapper>
 );

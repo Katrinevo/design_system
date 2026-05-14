@@ -35,13 +35,20 @@ export const Palette =
       ${({ theme }) =>
         theme.colors.primaryDark};
 
-    padding: 20px;
+    padding: 24px;
+
+    font-family:
+      "JetBrains Mono",
+      monospace;
   `;
 
 export const Search =
   styled.input`
     width: 100%;
-    padding: 16px;
+
+    padding: 18px;
+
+    box-sizing: border-box;
 
     border: 3px solid
       ${({ theme }) =>
@@ -51,10 +58,11 @@ export const Search =
       ${({ theme }) =>
         theme.radius.md};
 
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 
-    background:
-      white;
+    background: white;
+
+    font-size: 18px;
 
     font-family:
       "JetBrains Mono",
@@ -63,16 +71,31 @@ export const Search =
 
 export const CommandItem =
   styled.div`
-    padding: 14px;
-    margin-bottom: 8px;
+    width: 100%;
 
-    border-radius: 16px;
+    padding: 18px;
+    
+    box-sizing: border-box;
 
-    cursor: pointer;
+    margin-bottom: 12px;
+
+    border: 2px solid
+      ${({ theme }) =>
+        theme.colors.primaryDark};
+
+    border-radius: 18px;
+
+    background: white;
+
+    font-size: 18px;
 
     font-family:
       "JetBrains Mono",
       monospace;
+
+    cursor: pointer;
+
+    transition: .15s;
 
     &:hover {
       background:

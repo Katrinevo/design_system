@@ -1,19 +1,50 @@
-import React from "react";
-import { Select }
-from "./Dropdown.styles";
+import React, { useState } from "react";
 import {
- DropdownProps
+  Wrapper,
+  Trigger,
+  Menu,
+  Option
+} from "./Dropdown.styles";
+
+import {
+  DropdownProps
 } from "./Dropdown.types";
 
 export const Dropdown:
 React.FC<DropdownProps> = ({
   options
-}) => (
-  <Select>
-    {options.map((o) => (
-      <option key={o}>
-        {o}
-      </option>
-    ))}
-  </Select>
-);
+}) => {
+  const [open, setOpen] =
+    useState(false);
+
+  const [selected, setSelected] =
+    useState(options[0]);
+
+  return (
+    <Wrapper>
+      <Trigger
+        onClick={() =>
+          setOpen(!open)
+        }
+      >
+        {selected}
+      </Trigger>
+
+      {open && (
+        <Menu>
+          {options.map((o) => (
+            <Option
+              key={o}
+              onClick={() => {
+                setSelected(o);
+                setOpen(false);
+              }}
+            >
+              {o}
+            </Option>
+          ))}
+        </Menu>
+      )}
+    </Wrapper>
+  );
+};

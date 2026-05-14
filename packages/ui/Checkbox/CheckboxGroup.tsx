@@ -3,22 +3,27 @@ import { Checkbox }
 from "./Checkbox";
 
 import {
- CheckboxGroupProps
+  CheckboxGroupProps
 } from "./Checkbox.types";
 
+interface Props
+  extends CheckboxGroupProps {
+  multiple?: boolean;
+}
+
 export const CheckboxGroup:
-React.FC<CheckboxGroupProps> = ({
- options
-}) => {
- return (
+React.FC<Props> = ({
+  options,
+  multiple = false
+}) => (
   <>
-   {options.map((o) => (
-    <Checkbox
-      key={o.id}
-      label={o.label}
-      checked={o.checked}
-    />
-   ))}
+    {options.map((o) => (
+      <Checkbox
+        key={o.id}
+        label={o.label}
+        checked={o.checked}
+        multiple={multiple}
+      />
+    ))}
   </>
- );
-};
+);

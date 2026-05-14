@@ -5,35 +5,48 @@ export const Wrapper =
     display: flex;
     align-items: center;
     gap: 16px;
+
     cursor: pointer;
+
     font-size: 24px;
-    color: #0F4A8A;
+
+    color:
+      ${({ theme }) =>
+        theme.colors.text};
+
     font-family:
       "JetBrains Mono",
       monospace;
   `;
 
 export const Box =
-  styled.div<{ checked: boolean }>`
+  styled.div<{
+    checked: boolean;
+    multiple?: boolean;
+  }>`
     width: 36px;
     height: 36px;
 
-    border: 3px solid #0F4A8A;
+    border: 3px solid
+      ${({ theme }) =>
+        theme.colors.primaryDark};
 
     border-radius:
-      ${({ checked }) =>
-        checked ? "10px" : "50%"};
+      ${({ multiple }) =>
+        multiple
+          ? "8px"
+          : "50%"};
 
     background:
-      ${({ checked }) =>
+      ${({ checked, theme }) =>
         checked
-          ? "#0F4A8A"
-          : "#DCE6F2"};
+          ? theme.colors.primaryDark
+          : theme.colors.primary};
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    color:white;
-    font-size:24px;
+    color: white;
+    font-size: 20px;
   `;
