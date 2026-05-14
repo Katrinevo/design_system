@@ -1,6 +1,14 @@
-import React from "react";
-import { Fab }
-from "./FAB.styles";
+import React,
+{
+ useState
+} from "react";
+
+import {
+ Wrapper,
+ Fab,
+ ActionList,
+ ActionButton
+} from "./FAB.styles";
 
 import {
  FABProps
@@ -10,12 +18,33 @@ export const FAB:
 React.FC<FABProps> = ({
  icon = "+",
  disabled = false,
- onPress
-}) => (
- <Fab
-   disabled={disabled}
-   onClick={onPress}
- >
-   {icon}
- </Fab>
-);
+ actions = []
+}) => {
+ const [open, setOpen] =
+  useState(false);
+
+ return (
+  <Wrapper>
+   {open && (
+    <ActionList>
+      {actions.map((a) => (
+        <ActionButton
+          key={a.id}
+        >
+          {a.icon}
+        </ActionButton>
+      ))}
+    </ActionList>
+   )}
+
+   <Fab
+    disabled={disabled}
+    onClick={() =>
+      setOpen(!open)
+    }
+   >
+    {icon}
+   </Fab>
+  </Wrapper>
+ );
+};

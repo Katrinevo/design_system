@@ -1,0 +1,3 @@
+export {
+  CommandPalette
+} from "./ComPalette";

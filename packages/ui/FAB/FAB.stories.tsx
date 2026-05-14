@@ -1,5 +1,5 @@
 import {
- FAB as FAB
+ FAB
 } from "./";
 
 export default {
@@ -9,21 +9,13 @@ export default {
   FAB
 };
 
-export const Default = {
- args: {
-  icon: "+"
- }
-};
-
-export const Edit = {
- args: {
-  icon: "✎"
- }
-};
-
-export const Disabled = {
+export const SpeedDial = {
  args: {
   icon: "+",
-  disabled: true
+  actions: [
+   { id: 1, icon: "✎" },
+   { id: 2, icon: "🗑" },
+   { id: 3, icon: "⚙" }
+  ]
  }
 };

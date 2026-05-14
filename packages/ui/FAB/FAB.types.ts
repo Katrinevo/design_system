@@ -1,5 +1,10 @@
+export interface FabAction {
+  id: number;
+  icon: string;
+}
+
 export interface FABProps {
   icon?: string;
   disabled?: boolean;
-  onPress?: () => void;
+  actions?: FabAction[];
 }
