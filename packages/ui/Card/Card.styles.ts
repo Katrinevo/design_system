@@ -1,28 +1,48 @@
 import styled from "styled-components";
 
 export const CardWrapper =
-  styled.div`
+  styled.div<{
+    variant?: string;
+  }>`
     width: 320px;
+    height: 180px;
+
     padding: 24px;
 
-    background:
-      ${({ theme }) => theme.colors.primary};
-
-    border: 3px solid
-      ${({ theme }) =>
-        theme.colors.primaryDark};
+    position: relative;
 
     border-radius:
-      ${({ theme }) => theme.radius.md};
-
-    box-shadow: 8px 8px 0
       ${({ theme }) =>
-        theme.colors.primaryDark};
+        theme.radius.md};
+
+    background:
+      ${({ theme, variant }) =>
+        variant === "outlined"
+          ? "white"
+          : theme.colors.primary};
+
+    border:
+      ${({ theme, variant }) =>
+        variant === "filled"
+          ? "none"
+          : `3px solid ${theme.colors.primaryDark}`};
+
+    box-shadow:
+      ${({ theme, variant }) =>
+        variant === "elevated"
+          ? `8px 8px 0 ${theme.colors.primaryDark}`
+          : "none"};
 `;
 
 export const CardTitle =
   styled.h3`
-    margin-bottom: 16px;
+    position: absolute;
+
+    left: 24px;
+    bottom: 20px;
+
+    margin: 0;
+
     color:
       ${({ theme }) =>
         theme.colors.text};
@@ -30,4 +50,6 @@ export const CardTitle =
     font-family:
       "JetBrains Mono",
       monospace;
+
+    font-size: 20px;
 `;

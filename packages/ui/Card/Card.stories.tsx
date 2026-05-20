@@ -5,9 +5,23 @@ export default {
   component: Card
 };
 
-export const Default = {
+export const Filled = {
   args: {
-    title: "Card title",
-    children: "Card content"
+    title: "Filled",
+    variant: "filled"
+  }
+};
+
+export const Outlined = {
+  args: {
+    title: "Outlined",
+    variant: "outlined"
+  }
+};
+
+export const Elevated = {
+  args: {
+    title: "Elevated",
+    variant: "elevated"
   }
 };

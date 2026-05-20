@@ -1,44 +1,53 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { useTheme } from "styled-components/native";
-import { ButtonProps } from "./Button.types";
+import styled from "styled-components/native";
+import {
+  TouchableOpacityProps
+} from "react-native";
 
-export const Button: React.FC<ButtonProps> = ({
+interface Props
+  extends TouchableOpacityProps {
+  title: string;
+  disabled?: boolean;
+}
+
+const StyledButton =
+  styled.TouchableOpacity<{
+    disabled?: boolean;
+  }>`
+    background-color:
+      ${({ theme, disabled }) =>
+        disabled
+          ? theme.colors.disabled
+          : theme.colors.primary};
+
+    padding: 18px 28px;
+
+    border-radius: 24px;
+
+    border-width: 3px;
+    border-color:
+      ${({ theme }) =>
+        theme.colors.primaryDark};
+
+    align-items: center;
+  `;
+
+const Text =
+  styled.Text`
+    font-family: "System";
+    font-size: 20px;
+
+    color:
+      ${({ theme }) =>
+        theme.colors.text};
+  `;
+
+export const Button:
+React.FC<Props> = ({
   title,
-  onPress,
-  disabled = false
-}) => {
-  const theme = useTheme();
-
-  return (
-    <TouchableOpacity
-      onPress={onPress}
-      disabled={disabled}
-      style={[
-        styles.button,
-        {
-          backgroundColor: disabled
-            ? theme.colors.disabled
-            : theme.colors.primary,
-        },
-      ]}
-      activeOpacity={0.7}
-    >
-      <Text style={[styles.text, { color: theme.colors.text }]}>
-        {title}
-      </Text>
-    </TouchableOpacity>
-  );
-};
-
-const styles = StyleSheet.create({
-  button: {
-    padding: 16,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 16,
-    fontWeight: "500",
-  },
-});
+  ...props
+}) => (
+  <StyledButton {...props}>
+    <Text>{title}</Text>
+  </StyledButton>
+);
